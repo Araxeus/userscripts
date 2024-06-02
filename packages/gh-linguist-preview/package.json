@@ -1,0 +1,25 @@
+{
+  "name": "gh-linguist-preview",
+  "version": "1.0.6",
+  "main": "index.js",
+  "packageManager": "yarn@3.4.1",
+  "type": "module",
+  "author": "Araxeus",
+  "license": "MIT",
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "build": "rollup -c && uglifyjs dist/bundle.js -c -m -o dist/bundle.min.js",
+    "clipboard": "clip < dist/bundle.min.js",
+    "upgrade-version": "node upgrade_version.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "inquirer": "^9.1.4",
+    "rollup": "^3.17.0",
+    "uglify-js": "^3.17.4",
+    "x-var": "^0.0.1"
+  }
+}

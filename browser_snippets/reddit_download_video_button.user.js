@@ -3,7 +3,6 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://www.reddit.com/*
 // @run-at      document-idle
-// @grant       none
 // @version     1.0
 // @author      -
 // @description 6/1/2024, 2:25:12 AM
@@ -53,9 +52,7 @@ const observer = new MutationObserver(() => {
         if (post._canDownload) continue;
         const postNameClean = post.__postTitle.replaceAll(/[/\\?%*:|"<>]/g, '');
         const postUrl = `https://reddit.com${post.__permalink}`;
-        const shareButton = post.shadowRoot.querySelector(
-            'slot[name="share-button"]',
-        );
+        const shareButton = post.shadowRoot.querySelector('slot[name="share-button"]');
 
         if (!shareButton) continue;
 
@@ -63,8 +60,8 @@ const observer = new MutationObserver(() => {
         shareButton.insertAdjacentHTML('afterend', buttonHtml);
         const downloadButton = post.shadowRoot.querySelector('#downloadButton');
         downloadButton.onclick = async () => {
-            downloadVideoWithCobalt(postUrl);
-            //downloadVideo(postUrl, postNameClean);
+            //downloadVideoWithCobalt(postUrl);
+            downloadVideo(postUrl, postNameClean);
         };
     }
 });
@@ -79,8 +76,7 @@ async function downloadVideo(postUrl, postName) {
     const data = JSON.parse(json.responseText)?.[0]?.data?.children?.[0]?.data;
 
     const videoUrl =
-        getVideoUrlFromData(data) ||
-        getVideoUrlFromData(data?.crosspost_parent_list?.[0]);
+        getVideoUrlFromData(data) || getVideoUrlFromData(data?.crosspost_parent_list?.[0]);
     if (data?.url?.endsWith('.gifv')) {
         window.open(data.url, '_blank');
         return;
@@ -113,8 +109,7 @@ async function downloadVideo(postUrl, postName) {
 
 function getVideoUrlFromData(data) {
     return (
-        data?.secure_media?.reddit_video?.fallback_url ||
-        data?.media?.reddit_video?.fallback_url
+        data?.secure_media?.reddit_video?.fallback_url || data?.media?.reddit_video?.fallback_url
     );
 }
 
@@ -138,7 +133,7 @@ async function downloadWithLocalServer(videoUrl, audioUrl, postName) {
             audioUrl,
             title: postName,
         }),
-    }).catch((err) => {
+    }).catch(err => {
         console.log(err);
         alert('Failed to start download, check the console for more info');
         throw err;
@@ -177,7 +172,8 @@ async function downloadVideoWithCobalt(postUrl) {
     console.log(res); // DELETE
     const str = JSON.parse(res.responseText);
     console.log(str); // DELETE
-    if (str.status === 'stream') {//success
+    if (str.status === 'stream') {
+        //success
         window.open(str.url, '_blank');
     } else {
         alert(`Failed to download video: ${str.error}`);

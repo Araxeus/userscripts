@@ -20,18 +20,16 @@ async function run(domainName) {
         return;
     }
 
-    const accountId = document.location.pathname.match(
-        /\/([^/]+)\/domains\/register/,
-    )[1];
+    const accountId = document.location.pathname.match(/\/([^/]+)\/domains\/register/)[1];
 
     const supportedTldsNames = await fetch(
         `https://dash.cloudflare.com/api/v4/accounts/${accountId}/registrar/domains/supported_tlds`,
     )
-        .then((r) => r.json())
-        .then((r) => r.result.tlds);
+        .then(r => r.json())
+        .then(r => r.result.tlds);
 
     const supportedTlds = Object.fromEntries(
-        supportedTldsNames.map((tld) => [`${domainName}.${tld}`, undefined]),
+        supportedTldsNames.map(tld => [`${domainName}.${tld}`, undefined]),
     );
 
     const total = supportedTldsNames.length;
@@ -39,7 +37,7 @@ async function run(domainName) {
     let count = 0;
     for (const nextTlds of get()) {
         const res = await Promise.all(
-            nextTlds.map((tld) =>
+            nextTlds.map(tld =>
                 fetch(
                     `https://dash.cloudflare.com/api/v4/accounts/${accountId}/registrar/domains/search`,
                     {
@@ -51,21 +49,18 @@ async function run(domainName) {
                         },
                     },
                 )
-                    .then((r) => r.json())
+                    .then(r => r.json())
                     .then(({ result }) => [
-                        ...result.domains.flatMap(
-                            ({ name, price, availability }) =>
-                                name.startsWith(`${domainName}.`)
-                                    ? [{ name, price, availability }]
-                                    : [],
+                        ...result.domains.flatMap(({ name, price, availability }) =>
+                            name.startsWith(`${domainName}.`)
+                                ? [{ name, price, availability }]
+                                : [],
                         ),
                         {
                             name: result.check_result.name,
-                            price:
-                                result.check_result.fees?.registration_fee ?? 0,
+                            price: result.check_result.fees?.registration_fee ?? 0,
                             availability:
-                                result.check_result.can_register &&
-                                result.check_result.available
+                                result.check_result.can_register && result.check_result.available
                                     ? 'available'
                                     : 'nope',
                         },
@@ -111,12 +106,12 @@ async function run(domainName) {
 }
 
 function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 const t = 100; // delay
 function waitFor(selector) {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
         const element = document.querySelector(selector);
         if (element) return resolve(element);
         new MutationObserver(async (mutations, observer) => {

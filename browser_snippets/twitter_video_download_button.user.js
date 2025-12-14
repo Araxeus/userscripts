@@ -13,7 +13,7 @@ const $$ = document.querySelectorAll.bind(document);
 const verbose = false;
 const API = hoistAPI();
 
-const downloadButtonHtml = `<div class="css-175oi2r r-18u37iz r-1h0z5md r-1wron08"><button id="downloadButton" aria-label="Download" role="button" class="css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr r-1loqt21 r-1ny4l3l" data-testid="bookmark" type="button"><div dir="ltr" class="css-146c3p1 r-bcqeeo r-1ttztb7 r-qvutc0 r-37j5jr r-a023e6 r-rjixqe r-16dba41 r-1awozwy r-6koalj r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q" style="text-overflow: unset; color: rgb(83, 100, 113); --darkreader-inline-color: #aaa398;" data-darkreader-inline-color=""><div class="css-175oi2r r-xoduu5"><div class="css-175oi2r r-xoduu5 r-1p0dtai r-1d2f490 r-u8s1d r-zchlnj r-ipm5af r-1niwhzg r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l"></div><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+const downloadButtonHtml = /*html*/ `<div class="css-175oi2r r-18u37iz r-1h0z5md r-1wron08"><button id="downloadButton" aria-label="Download" role="button" class="css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr r-1loqt21 r-1ny4l3l" data-testid="bookmark" type="button"><div dir="ltr" class="css-146c3p1 r-bcqeeo r-1ttztb7 r-qvutc0 r-37j5jr r-a023e6 r-rjixqe r-16dba41 r-1awozwy r-6koalj r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q" style="text-overflow: unset; color: rgb(83, 100, 113); --darkreader-inline-color: #aaa398;" data-darkreader-inline-color=""><div class="css-175oi2r r-xoduu5"><div class="css-175oi2r r-xoduu5 r-1p0dtai r-1d2f490 r-u8s1d r-zchlnj r-ipm5af r-1niwhzg r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l"></div><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V4M7 14H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2m-1-5-4 5-4-5m9 8h.01" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke: currentColor;"></path>
 </svg>
 </div></div></button></div>`;
@@ -55,7 +55,7 @@ async function setup(timeline) {
 }
 
 const observer = new MutationObserver(() => {
-	const timeline = $('body');
+	const timeline = $("body");
 	if (timeline) {
 		setup(timeline);
 		observer.disconnect();

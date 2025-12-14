@@ -1,6 +1,6 @@
 {
   "name": "userscripts",
-  "packageManager": "yarn@3.4.1",
+  "packageManager": "bun@1.3.4",
   "private": true,
   "workspaces": [
     "packages/*"

@@ -3,48 +3,38 @@
 // Click on an element to print out the closest hash link.
 
 (() => {
-    const logHashlink = e => {
-        document.removeEventListener('mousedown', logHashlink, true);
-
-        var node = e.target;
-        var id = null;
+    const findClosestLinkableElement = (node) => {
         while (node != null) {
-            if (node.tagName === 'A' && node.name) {
-                id = node.name;
-                break;
-            }
-
-            if (node.id) {
-                id = node.id;
-                break;
-            }
-
+            if (node.tagName === 'A' && node.name) return node.name;
+            if (node.id) return node.id;
             node = node.parentNode;
         }
+        return null;
+    };
 
+    const logHashlink = (e) => {
+        document.removeEventListener('mousedown', logHashlink, true);
         e.preventDefault();
         e.stopPropagation();
 
-        var URL =
-            window.location.origin +
-            window.location.pathname +
-            window.location.search;
+        const id = findClosestLinkableElement(e.target);
+        const url = `${window.location.origin}${window.location.pathname}${window.location.search}`;
 
         console.group('Hashlink');
         console.log('Clicked on ', e.target);
+
         if (id === null) {
-            alert('No ID Found - closest anchor: ' + URL);
+            alert(`No ID Found - closest anchor: ${url}`);
         } else {
-            console.log('Closest linkable element: ', node);
-            alert(URL + '#' + id);
+            console.log('Closest linkable element: ', e.target);
+            alert(`${url}#${id}`);
         }
         console.groupEnd('Hashlink');
     };
 
-    const stopClickEvent = e => {
+    const stopClickEvent = (e) => {
         e.preventDefault();
         e.stopPropagation();
-
         document.removeEventListener('click', stopClickEvent, true);
     };
 

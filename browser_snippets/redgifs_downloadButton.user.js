@@ -26,7 +26,22 @@ const observer = new MutationObserver(() => {
         const downloadButton = $('button.DownloadButton');
         downloadButton.onclick = () => {
             const url = $('meta[property="og:video"]').content.replace('-silent', '');
-            window.location.assign(url);
+            // Inject muted video element
+            const newTab = window.open('', '_blank', 'popup');
+            newTab.document.body.innerHTML = `
+                    <video controls autoplay muted style="
+                            margin: auto;
+                            position: absolute;
+                            top: 0px;
+                            right: 0px;
+                            bottom: 0px;
+                            left: 0px;
+                            max-height: 100%;
+                            max-width: 100%;">
+                        <source src="${url}" type="video/mp4">
+                    </video>
+                `;
+            //window.location.assign(url);
             // const name = url.match(/\/[a-zA-Z]+\.mp4/)[0];
             // GM_download({ url, name });
         };

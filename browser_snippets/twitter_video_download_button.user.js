@@ -78,7 +78,22 @@ async function downloadVideo(post) {
     }
     const id = link.match(/(?<=\/status\/)\d+/)?.[0];
     const medias = await API.getTweetMedias(id);
-    window.open(medias?.[0].download_url);
+    // window.open(medias?.[0].download_url);
+    // Inject muted video element
+    const newTab = window.open('', '_blank', 'popup');
+    newTab.document.body.innerHTML = `
+                    <video controls autoplay muted style="
+                            margin: auto;
+                            position: absolute;
+                            top: 0px;
+                            right: 0px;
+                            bottom: 0px;
+                            left: 0px;
+                            max-height: 100%;
+                            max-width: 100%;">
+                        <source src="${medias?.[0].download_url}" type="video/mp4">
+                    </video>
+                `;
 }
 
 function getCookie(name) {

@@ -63,7 +63,7 @@ const observer = new MutationObserver(() => {
         shareButton.insertAdjacentHTML('afterend', buttonHtml);
         const downloadButton = post.shadowRoot.querySelector('#downloadButton');
         downloadButton.onclick = async () => {
-            await openVideoInNewTab(post) || await downloadVideo(postUrl, postNameClean);
+            (await openVideoInNewTab(post)) || (await downloadVideo(postUrl, postNameClean));
             //downloadVideoWithCobalt(postUrl);
         };
     }
@@ -85,7 +85,22 @@ async function openVideoInNewTab(postElement) {
     const mediaData = JSON.parse(mediaJson);
     const videoUrl = mediaData?.playbackMp4s?.permutations?.at(-1)?.source?.url;
     if (videoUrl) {
-        window.open(videoUrl, '_blank');
+        //window.open(videoUrl, '_blank');
+        // Inject muted video element
+        const newTab = window.open('', '_blank', 'popup');
+        newTab.document.body.innerHTML = `
+                    <video controls autoplay muted style="
+                            margin: auto;
+                            position: absolute;
+                            top: 0px;
+                            right: 0px;
+                            bottom: 0px;
+                            left: 0px;
+                            max-height: 100%;
+                            max-width: 100%;">
+                        <source src="${videoUrl}" type="video/mp4">
+                    </video>
+                `;
     } else {
         console.log('No video URL found in media JSON');
         return false;

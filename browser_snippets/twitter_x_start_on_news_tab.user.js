@@ -34,8 +34,8 @@ const observer = new MutationObserver(() => {
     );
     counter++;
     if (targetElement) {
-        for (const element of targetElement.querySelectorAll('div[role="presentation"]>a')) {
-            if (element.querySelector('span').textContent.toLowerCase() === TABNAME) {
+        for (const element of targetElement.querySelectorAll('div[role="presentation"]>div[role="tab"]')) {
+            if (element.querySelector('span')?.textContent?.toLowerCase() === TABNAME) {
                 element.click();
                 console.log(`"${TABNAME}" tab found and clicked after ${counter} mutations`);
                 observer.disconnect();

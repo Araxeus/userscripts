@@ -3,7 +3,7 @@
 // Click on an element to print out the closest hash link.
 
 (() => {
-    const findClosestLinkableElement = (node) => {
+    const findClosestLinkableElement = node => {
         while (node != null) {
             if (node.tagName === 'A' && node.name) return node.name;
             if (node.id) return node.id;
@@ -12,7 +12,7 @@
         return null;
     };
 
-    const logHashlink = (e) => {
+    const logHashlink = e => {
         document.removeEventListener('mousedown', logHashlink, true);
         e.preventDefault();
         e.stopPropagation();
@@ -32,7 +32,7 @@
         console.groupEnd('Hashlink');
     };
 
-    const stopClickEvent = (e) => {
+    const stopClickEvent = e => {
         e.preventDefault();
         e.stopPropagation();
         document.removeEventListener('click', stopClickEvent, true);

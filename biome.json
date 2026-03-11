@@ -57,7 +57,7 @@
             "arrowParentheses": "asNeeded"
         },
         "globals": [
-			"GM",
+            "GM",
             "GM_addElement",
             "GM_addStyle",
             "GM_download",

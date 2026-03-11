@@ -49,7 +49,7 @@ const observer = new MutationObserver(() => {
     if (!postsWithVideo.size) return;
 
     for (const post of postsWithVideo) {
-        if (post._canDownload) continue;
+        if (post._canDownload || !post.__permalink) continue;
         const postNameClean = post.__postTitle.replaceAll(/[/\\?%*:|"<>]/g, '');
         const postUrl = `https://reddit.com${post.__permalink}`;
         const shareButton = post.shadowRoot.querySelector('slot[name="share-button"]');
@@ -60,8 +60,8 @@ const observer = new MutationObserver(() => {
         shareButton.insertAdjacentHTML('afterend', buttonHtml);
         const downloadButton = post.shadowRoot.querySelector('#downloadButton');
         downloadButton.onclick = async () => {
+            await openVideoInNewTab(post) || await downloadVideo(postUrl, postNameClean);
             //downloadVideoWithCobalt(postUrl);
-            downloadVideo(postUrl, postNameClean);
         };
     }
 });
@@ -71,9 +71,29 @@ observer.observe($('shreddit-app'), {
     childList: true,
 });
 
+async function openVideoInNewTab(postElement) {
+    const mediaJson = postElement
+        .querySelector('shreddit-player')
+        ?.getAttribute('packaged-media-json');
+    if (!mediaJson) {
+        console.log('No media JSON found for post');
+        return false;
+    }
+    const mediaData = JSON.parse(mediaJson);
+    const videoUrl = mediaData?.playbackMp4s?.permutations?.at(-1)?.source?.url;
+    if (videoUrl) {
+        window.open(videoUrl, '_blank');
+    } else {
+        console.log('No video URL found in media JSON');
+        return false;
+    }
+}
+
 async function downloadVideo(postUrl, postName) {
+    console.log(`fetching post data from ${postUrl}.json`);
     const json = await xFetch(`${postUrl}.json`);
     const data = JSON.parse(json.responseText)?.[0]?.data?.children?.[0]?.data;
+    console.log('data fetched');
 
     const videoUrl =
         getVideoUrlFromData(data) || getVideoUrlFromData(data?.crosspost_parent_list?.[0]);
@@ -86,7 +106,7 @@ async function downloadVideo(postUrl, postName) {
         return;
     }
 
-    const audioUrlOld = videoUrl.replace(/(DASH_).+(\.)/, '$1audio$2');
+    const audioUrlOld = videoUrl.replace(/(DASH_|CMAF_).+(\.)/, '$1audio$2');
     const audioUrl128 = audioUrlOld.replace('audio', 'AUDIO_128');
     const audioUrl64 = audioUrlOld.replace('audio', 'AUDIO_64');
     let audioUrl;
@@ -121,6 +141,7 @@ async function downloadWithFfmpeg(videoUrl, audioUrl, postName) {
 }
 
 async function downloadWithLocalServer(videoUrl, audioUrl, postName) {
+    return false; // DISABLED FOR NOW
     const res = await xFetch({
         method: 'POST',
         url: 'http://localhost:3000/api/reddit_video_download',

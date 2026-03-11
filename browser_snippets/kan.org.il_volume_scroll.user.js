@@ -11,21 +11,21 @@
 // ==/UserScript==
 
 const observer = new MutationObserver(() => {
-    const overlay = document.querySelector('.kaltura-player-container');
+    const overlay = document.querySelector('div.redge-player');
+    const video = overlay?.querySelector('video');
     console.log('searching');
-    if (overlay) {
-      console.log('found');
-        overlay.onwheel = ({deltaY}) => {
-            const video = document.querySelector('video');
+    if (overlay && video) {
+        console.log('found');
+        overlay.onwheel = ({ deltaY }) => {
             video.volume = Math.max(0, Math.min(1, video.volume + deltaY / -10000));
             video.muted = video.volume === 0;
             return false;
         };
-        observer.disconnect()
+        observer.disconnect();
     }
-})
+});
 
 observer.observe(document.body, {
     childList: true,
-    subtree: true
-})
+    subtree: true,
+});

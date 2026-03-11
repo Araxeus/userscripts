@@ -1,13 +1,16 @@
 // ==UserScript==
-// @name        kan.org.il: Volume Scroll
-// @namespace   Violentmonkey Scripts
-// @match       https://www.kan.org.il/live/
-// @match       https://www.kan.org.il/player
-// @match       https://www.kan.org.il/content/kan/kan-11/*
-// @grant       none
-// @version     1.0
-// @author      -
-// @description 11/5/2023, 7:02:36 PM
+// @name         kan.org.il: Volume Scroll
+// @namespace    https://github.com/Araxeus/userscripts
+// @version      1.0.0
+// @updateURL    https://github.com/Araxeus/userscripts/raw/main/browser_snippets/kan.org.il_volume_scroll.user.js
+// @downloadURL  https://github.com/Araxeus/userscripts/raw/main/browser_snippets/kan.org.il_volume_scroll.user.js
+// @description  Adjust volume using scroll wheel on kan.org.il player
+// @author       Araxeus
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=kan.org.il
+// @match        https://www.kan.org.il/live/
+// @match        https://www.kan.org.il/player
+// @match        https://www.kan.org.il/content/kan/kan-11/*
+// @grant        none
 // ==/UserScript==
 
 const observer = new MutationObserver(() => {

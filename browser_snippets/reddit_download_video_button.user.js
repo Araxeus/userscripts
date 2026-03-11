@@ -1,13 +1,16 @@
 // ==UserScript==
-// @name        reddit.com Video Download Button
-// @namespace   Violentmonkey Scripts
-// @match       https://www.reddit.com/*
-// @run-at      document-idle
-// @version     1.0
-// @author      -
-// @description 6/1/2024, 2:25:12 AM
-// @grant       GM.setClipboard
-// @grant       GM.xmlHttpRequest
+// @name         reddit.com Video Download Button
+// @namespace    https://github.com/Araxeus/userscripts
+// @version      1.0.0
+// @updateURL    https://github.com/Araxeus/userscripts/raw/main/browser_snippets/reddit_download_video_button.user.js
+// @downloadURL  https://github.com/Araxeus/userscripts/raw/main/browser_snippets/reddit_download_video_button.user.js
+// @description  Adds a download button to reddit posts with videos
+// @author       Araxeus
+// @match        https://www.reddit.com/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=reddit.com
+// @run-at       document-idle
+// @grant        GM.setClipboard
+// @grant        GM.xmlHttpRequest
 // ==/UserScript==
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);

@@ -1,12 +1,15 @@
 // ==UserScript==
-// @name        disable ads mobalytics.gg
-// @namespace   Violentmonkey Scripts
-// @match       https://mobalytics.gg/poe-2/profile/230cecbd-9040-45f4-b95e-cee490c74641/builds/d384451b-ad37-4b52-bf27-42ebffd2757a*
-// @grant       none
-// @version     1.0
-// @author      -
-// @run-at      document-idle
-// @description 12/28/2024, 11:15:24 AM
+// @name         disable ads mobalytics.gg
+// @namespace    https://github.com/Araxeus/userscripts
+// @version      1.0.0
+// @updateURL    https://github.com/Araxeus/userscripts/raw/main/browser_snippets/disable_ads_mobalytics.gg.user.js
+// @downloadURL  https://github.com/Araxeus/userscripts/raw/main/browser_snippets/disable_ads_mobalytics.gg.user.js
+// @description  Disables ads on mobalytics.gg
+// @author       Araxeus
+// @match        https://mobalytics.gg/poe-2/profile/230cecbd-9040-45f4-b95e-cee490c74641/builds/d384451b-ad37-4b52-bf27-42ebffd2757a*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=mobalytics.gg
+// @grant        none
+// @run-at       document-idle
 // ==/UserScript==
 
 setTimeout(hide, 1000);

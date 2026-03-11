@@ -1,13 +1,15 @@
 // ==UserScript==
-// @name        Localhost Random Video Player
-// @namespace   Violentmonkey Scripts
-// @match       http://127.0.0.1:3000/random*
-// @match       http://localhost:3000/random*
-// @run-at      document-idle
-// @grant       none
-// @version     1.0
-// @author      -
-// @description 6/3/2024, 12:36:37 AM
+// @name         Localhost Random Video Player
+// @namespace    https://github.com/Araxeus/userscripts
+// @version      1.0.0
+// @updateURL    https://github.com/Araxeus/userscripts/raw/main/browser_snippets/localhost_random_video_player.user.js
+// @downloadURL  https://github.com/Araxeus/userscripts/raw/main/browser_snippets/localhost_random_video_player.user.js
+// @description  Play random videos on localhost
+// @author       Araxeus
+// @match        http://127.0.0.1:3000/random*
+// @match        http://localhost:3000/random*
+// @run-at       document-idle
+// @grant        none
 // ==/UserScript==
 
 console.info('UserScript loaded');

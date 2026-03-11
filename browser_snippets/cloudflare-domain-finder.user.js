@@ -1,12 +1,15 @@
 // ==UserScript==
-// @name        cloudeflare domain finder
-// @namespace   Violentmonkey Scripts
-// @match       https://dash.cloudflare.com/*/domains/register
-// @run-at      document-idle
-// @grant       none
-// @version     1.0
-// @author      Araxeus
-// @description 8/10/2024, 10:22:36 AM
+// @name         Cloudflare domain finder
+// @namespace    https://github.com/Araxeus/userscripts
+// @version      1.0.0
+// @updateURL    https://github.com/Araxeus/userscripts/raw/main/browser_snippets/cloudflare-domain-finder.user.js
+// @downloadURL  https://github.com/Araxeus/userscripts/raw/main/browser_snippets/cloudflare-domain-finder.user.js
+// @description  Finds available domains on Cloudflare
+// @author       Araxeus
+// @match        https://dash.cloudflare.com/*/domains/register
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=cloudflare.com
+// @run-at       document-idle
+// @grant        none
 // ==/UserScript==
 
 if (!window.search) window.search = run;

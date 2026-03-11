@@ -1,11 +1,14 @@
 // ==UserScript==
-// @name        Twitter: Auto-click the 'news' tab
-// @namespace   Violentmonkey Scripts
-// @match       https://x.com/*
-// @grant       none
-// @version     1.0
-// @author      Araxeus
-// @description 10/28/2023, 7:04:16 PM
+// @name         Twitter: Auto-click the 'news' tab
+// @namespace    https://github.com/Araxeus/userscripts
+// @version      1.0.0
+// @updateURL    https://github.com/Araxeus/userscripts/raw/main/browser_snippets/twitter_x_start_on_news_tab.user.js
+// @downloadURL  https://github.com/Araxeus/userscripts/raw/main/browser_snippets/twitter_x_start_on_news_tab.user.js
+// @description  Automatically clicks the 'news' tab on Twitter
+// @author       Araxeus
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=x.com
+// @match        https://x.com/*
+// @grant        none
 // ==/UserScript==
 
 // THIS INITIAL VERSION JUST CLICK THE 3rd TAB

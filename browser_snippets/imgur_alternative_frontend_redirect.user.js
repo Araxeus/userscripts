@@ -1,9 +1,12 @@
 // ==UserScript==
 // @name         Imgur Alternative Frontend Redirector
-// @namespace    Violentmonkey Scripts
-// @version      1.0
-// @description  5/24/2025, 8:10:03 AM Automatically redirect Imgur links to working alternative frontends
+// @namespace    https://github.com/Araxeus/userscripts
+// @version      1.0.0
+// @updateURL    https://github.com/Araxeus/userscripts/raw/main/browser_snippets/imgur_alternative_frontend_redirect_script.user.js
+// @downloadURL  https://github.com/Araxeus/userscripts/raw/main/browser_snippets/imgur_alternative_frontend_redirect_script.user.js
+// @description  Redirects to an alternative Imgur frontend
 // @author       Araxeus
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=imgur.com
 // @match        https://imgur.com/*
 // @match        https://www.imgur.com/*
 // @match        https://i.imgur.com/*

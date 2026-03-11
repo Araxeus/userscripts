@@ -1,12 +1,15 @@
 // ==UserScript==
-// @name        x.com/twitter.com Video Download Button
-// @namespace   Violentmonkey Scripts
-// @match       https://x.com/*
-// @grant       GM_registerMenuCommand
-// @run-at      document-idle
-// @version     1.0
-// @author      -
-// @description 6/1/2024, 7:05:03 PM
+// @name         x.com/twitter.com Video Download Button
+// @namespace    https://github.com/Araxeus/userscripts
+// @version      1.0.0
+// @updateURL    https://github.com/Araxeus/userscripts/raw/main/browser_snippets/twitter_video_download_button.user.js
+// @downloadURL  https://github.com/Araxeus/userscripts/raw/main/browser_snippets/twitter_video_download_button.user.js
+// @description  Adds a download button to x.com/twitter.com videos
+// @author       Araxeus
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=x.com
+// @match        https://x.com/*
+// @grant        GM_registerMenuCommand
+// @run-at       document-idle
 // ==/UserScript==
 const $ = document.querySelector.bind(document);
 const verbose = false;

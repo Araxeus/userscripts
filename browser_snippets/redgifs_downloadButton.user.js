@@ -1,12 +1,15 @@
 // ==UserScript==
-// @name        redgifs downloadButton
-// @namespace   Violentmonkey Scripts
-// @match       https://www.redgifs.com/watch/*
-// @run-at      document-idle
-// @version     1.0
-// @author      Araxeus
-// @grant       GM_download
-// @description 6/19/2025, 5:39:45 PM
+// @name         redgifs downloadButton
+// @namespace    https://github.com/Araxeus/userscripts
+// @version      1.0.0
+// @updateURL    https://github.com/Araxeus/userscripts/raw/main/browser_snippets/redgifs_downloadButton.user.js
+// @downloadURL  https://github.com/Araxeus/userscripts/raw/main/browser_snippets/redgifs_downloadButton.user.js
+// @description  Adds a download button to redgifs videos
+// @author       Araxeus
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=redgifs.com
+// @match        https://www.redgifs.com/watch/*
+// @run-at       document-idle
+// @grant        GM_download
 // ==/UserScript==
 
 const $ = document.querySelector.bind(document);

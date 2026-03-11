@@ -1,12 +1,15 @@
 // ==UserScript==
-// @name        clips.twitch.tv download button
-// @namespace   Violentmonkey Scripts
-// @match       https://www.twitch.tv/*/clip/*
-// @run-at      document-idle
-// @version     1.0
-// @author      -
-// @description 6/1/2024, 2:25:12 AM
-// @grant       GM_download
+// @name         clips.twitch.tv download button
+// @namespace    https://github.com/Araxeus/userscripts
+// @version      1.0.0
+// @updateURL    https://github.com/Araxeus/userscripts/raw/main/browser_snippets/twitch_clips_download_button.user.js
+// @downloadURL  https://github.com/Araxeus/userscripts/raw/main/browser_snippets/twitch_clips_download_button.user.js
+// @description  Adds a download button to Twitch clips
+// @author       Araxeus
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=twitch.tv
+// @match        https://www.twitch.tv/*/clip/*
+// @run-at       document-idle
+// @grant        GM_download
 // ==/UserScript==
 
 const $ = document.querySelector.bind(document);

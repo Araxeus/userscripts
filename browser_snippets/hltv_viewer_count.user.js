@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         hltv total number of live watchers
-// @namespace    http://tampermonkey.net/
-// @version      2025-12-14
-// @description  try to take over the world!
-// @author       You
+// @namespace    https://github.com/Araxeus/userscripts
+// @version      1.0.0
+// @updateURL    https://github.com/Araxeus/userscripts/raw/main/browser_snippets/hltv_viewer_count.user.js
+// @downloadURL  https://github.com/Araxeus/userscripts/raw/main/browser_snippets/hltv_viewer_count.user.js
+// @description  Displays the total number of live watchers on HLTV matches
+// @author       Araxeus
 // @match        https://www.hltv.org/matches/**/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=hltv.org
 // @grant        GM_registerMenuCommand

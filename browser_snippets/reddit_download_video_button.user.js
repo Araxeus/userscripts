@@ -137,9 +137,9 @@ async function downloadVideo(postUrl, postName) {
     }
 
     if (audioUrl) {
-        downloadWithLocalServer(videoUrl, audioUrl, postName).catch(() => {
+        // downloadWithLocalServer(videoUrl, audioUrl, postName).catch(() => {
             downloadWithFfmpeg(videoUrl, audioUrl, postName);
-        });
+        // });
     } else {
         window.open(videoUrl, '_blank');
     }
@@ -159,7 +159,6 @@ async function downloadWithFfmpeg(videoUrl, audioUrl, postName) {
 }
 
 async function downloadWithLocalServer(videoUrl, audioUrl, postName) {
-    return false; // DISABLED FOR NOW
     const res = await xFetch({
         method: 'POST',
         url: 'http://localhost:3000/api/reddit_video_download',

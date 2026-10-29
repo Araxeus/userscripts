@@ -11,16 +11,17 @@
 // @grant        GM_registerMenuCommand
 // ==/UserScript==
 
-const $ = document.querySelector.bind(document);
+const toggleDisplay = elSelector => {
+    const el = document.querySelector(elSelector);
+    el.style.display = el.style.display === 'none' ? '' : 'none';
+};
 
 GM_registerMenuCommand(
     'Show/Hide Progress',
     () => {
-        const progressBar = $('.ytp-progress-bar-container');
-        const display = progressBar.style.display === 'none' ? '' : 'none';
-        progressBar.style.display = display;
-        $('.ytp-time-duration').style.display = display;
-        $('.ytp-time-separator').style.display = display;
+        toggleDisplay('div.ytp-progress-bar-container');
+        toggleDisplay('span.ytp-time-duration');
+        toggleDisplay('span.ytp-time-separator');
     },
     {
         clickedFrame: true,

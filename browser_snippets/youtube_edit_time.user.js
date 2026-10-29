@@ -11,6 +11,14 @@
 // @run-at       document-end
 // ==/UserScript==
 
+// Keeps the control bar visible while editing, overriding YouTube's autohide
+document.head.append(
+    Object.assign(document.createElement('style'), {
+        textContent:
+            '.ytp-editing-time .ytp-chrome-bottom{opacity:1!important;visibility:visible!important}',
+    }),
+);
+
 // Parses 'H:MM:SS', 'M:SS' or plain seconds; returns null if invalid
 const parseTime = str =>
     /^\d+(:\d+){0,2}$/.test(str.trim())
@@ -40,11 +48,14 @@ document.addEventListener('click', e => {
         }
         if (e.key === 'Enter' || e.key === 'Escape') input.blur();
     });
+    const player = span.closest('.html5-video-player');
     input.addEventListener('blur', () => {
         input.remove();
         span.hidden = false;
+        player.classList.remove('ytp-editing-time');
     });
 
+    player.classList.add('ytp-editing-time');
     span.hidden = true;
     span.after(input);
     input.select();

@@ -13,6 +13,7 @@
 | [reddit_download_video_button.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/reddit_download_video_button.user.js) | Adds a download button to Reddit posts with videos.
 | [imgur_alternative_frontend_redirect.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/imgur_alternative_frontend_redirect.user.js) | Redirects Imgur to an alternative frontend. (for those that imgur is a blocked domain, or just want to avoid the ads and trackers)
 | [imgur_alternative_frontend_redirect_inside_script.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/imgur_alternative_frontend_redirect_inside_script.user.js) | open the image itself in the alternative frontend
+| [youtube_hide_progress.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/youtube_hide_progress.user.js) | Adds a menu command to toggle hide/show the YouTube video progress bar and total time.
 | [redgifs_downloadButton.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/redgifs_downloadButton.user.js) | Adds a download button to Redgifs videos for easy downloading.
 | [hltv_viewer_count.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/hltv_viewer_count.user.js) | Displays the viewer count on HLTV match pages.
 | [hackernews_expand_all.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/hackernews_expand_all.user.js) | Expands all comments on Hacker News threads.

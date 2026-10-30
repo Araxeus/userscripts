@@ -29,7 +29,7 @@ const parseTime = str =>
 // time wrapper's own click handler (which toggles elapsed/remaining), which we swallow.
 // An <input> replaces the span while editing, so YouTube's per-tick text updates can't clobber the input.
 document.addEventListener('click', e => {
-    if (!e.target.closest?.('.ytp-time-wrapper')) return;
+    if (!e.target.closest?.('.ytp-time-wrapper') || e.target.closest('.ytp-live-badge')) return; // let "Live" jump to the live edge
     e.stopPropagation();
 
     const span = e.target.closest('.ytp-time-current');

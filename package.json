@@ -1,7 +1,11 @@
 {
     "name": "userscripts",
-    "packageManager": "bun@1.3.4",
+    "packageManager": "bun@1.4.4",
     "private": true,
+    "type": "module",
+    "scripts": {
+        "prepare": "git config core.hooksPath .githooks"
+    },
     "workspaces": [
         "packages/*"
     ]

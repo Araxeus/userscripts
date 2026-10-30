@@ -1,0 +1,8 @@
+#!/bin/sh
+# Bump the patch version of every modified userscript in browser_snippets.
+files=$(git diff --cached --name-only --diff-filter=M -- 'browser_snippets/*.user.js')
+[ -z "$files" ] && exit 0
+
+echo "$files" | while IFS= read -r f; do
+    node scripts/bump-version.js "$f" && git add -- "$f" || exit 1
+done

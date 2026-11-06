@@ -14,6 +14,7 @@
 | [imgur_alternative_frontend_redirect.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/imgur_alternative_frontend_redirect.user.js) | Redirects Imgur to an alternative frontend. (for those that imgur is a blocked domain, or just want to avoid the ads and trackers)
 | [imgur_alternative_frontend_redirect_inside_script.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/imgur_alternative_frontend_redirect_inside_script.user.js) | open the image itself in the alternative frontend
 | [youtube_hide_progress.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/youtube_hide_progress.user.js) | Adds a menu command to toggle hide/show the YouTube video progress bar and total time.
+| [youtube_edit_time.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/youtube_edit_time.user.js) | Click the current time in the YouTube player to edit it and jump to a new time.
 | [redgifs_downloadButton.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/redgifs_downloadButton.user.js) | Adds a download button to Redgifs videos for easy downloading.
 | [hltv_viewer_count.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/hltv_viewer_count.user.js) | Displays the viewer count on HLTV match pages.
 | [hackernews_expand_all.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/hackernews_expand_all.user.js) | Expands all comments on Hacker News threads.
@@ -23,3 +24,4 @@
 | [13tv.co.il_volume_scroll.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/13tv.co.il_volume_scroll.user.js) | Enables volume scrolling on 13tv.co.il
 | [mako_volume_scroll.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/mako_volume_scroll.user.js) | Enables volume scrolling on Mako.co.il
 | [kan.org.il_volume_scroll.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/kan.org.il_volume_scroll.user.js) | Enables volume scrolling on Kan.org.il
+| [amo_first_published.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/amo_first_published.user.js) | Shows the first published date on Firefox add-on pages (addons.mozilla.org).

@@ -25,3 +25,4 @@
 | [mako_volume_scroll.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/mako_volume_scroll.user.js) | Enables volume scrolling on Mako.co.il
 | [kan.org.il_volume_scroll.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/kan.org.il_volume_scroll.user.js) | Enables volume scrolling on Kan.org.il
 | [amo_first_published.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/amo_first_published.user.js) | Shows the first published date on Firefox add-on pages (addons.mozilla.org).
+| [claude_artifact_fullscreen.user.js](https://github.com/Araxeus/userscripts/raw/main/browser_snippets/claude_artifact_fullscreen.user.js) | Expands Claude artifact pages to full page and hides the toolbar until you hover the top edge.
